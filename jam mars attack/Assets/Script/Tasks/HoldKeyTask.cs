@@ -10,7 +10,7 @@ public class HoldKeyTask : MonoBehaviour
     public BoxCollider Collider;
     public Canvas UICanvas;
     public GameObject ProgressBarGameObject;
-    public Image ProgressBar;
+    public Image ProgressBarImage;
     public KeyCode KeyToHold;
     public TMP_Text KeyText;
 
@@ -21,11 +21,8 @@ public class HoldKeyTask : MonoBehaviour
 
     void Start()
     {
-        SetTaskUIVisible(false);
-        ProgressBarGameObject.SetActive(false);
         KeyText.SetText(KeyToHold.ToString());
-
-        Progress = 0;
+        SetTaskUIVisible(false);
     }
 
     void Update()
@@ -43,12 +40,37 @@ public class HoldKeyTask : MonoBehaviour
             Progress += Time.deltaTime;
         }
 
+        if (Progress >= TaskTime)
+        {
+            TaskCore.Instance.IncrementCompletedTasks();
+            HideTask();
+            return;
+        }
+
         Progress = Math.Clamp(Progress, 0, TaskTime);
 
         ProgressBarGameObject.SetActive(Progress > 0);
 
-        RectTransform rectTransform = ProgressBar.GetComponent<RectTransform>();
+        RectTransform rectTransform = ProgressBarImage.GetComponent<RectTransform>();
         rectTransform.sizeDelta = new Vector2(20, Mathf.Lerp(0, 50, Progress / TaskTime));
+    }
+
+    public void HideTask()
+    {
+        SetTaskVisible(false);
+        SetTaskUIVisible(false);
+    }
+
+    public void ShowTask()
+    {
+        SetTaskVisible(true);
+    }
+
+    private void SetTaskVisible(bool visible)
+    {
+        ProgressBarGameObject.SetActive(visible);
+        Progress = 0;
+        gameObject.SetActive(visible);
     }
 
     void OnTriggerEnter(Collider other)
