@@ -16,6 +16,9 @@ public class TimeSystem : MonoBehaviour
     [SerializeField] private float timeCount;
     [SerializeField] private float timeSpeedMultiplier = 5f;
     [SerializeField, Tooltip("Starting time in hour")] private float timeStart = 8f;
+    [SerializeField, Tooltip("Time remaining to complete tasks in hour")] private float timeRemaining;
+    [SerializeField, Tooltip("game duration in hours")] private float gameDuration;
+    
 
     [Header("Phases Time")]
     public PhaseTime phaseTime;
@@ -61,6 +64,7 @@ public class TimeSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timeRemaining = gameDuration;
         timeCount += timeStart * 60; 
     }
 
@@ -68,6 +72,7 @@ public class TimeSystem : MonoBehaviour
     void Update()
     {
         timeCount += Time.deltaTime * timeSpeedMultiplier;
+        timeRemaining = gameDuration - timeCount;
 
         float minutes = Mathf.FloorToInt(timeCount % 60);
         float hours = Mathf.FloorToInt(timeCount / 60);
