@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +9,10 @@ public class HoldKeyTask : MonoBehaviour
 {
     public BoxCollider Collider;
     public Canvas UICanvas;
+    public GameObject ProgressBarGameObject;
     public Image ProgressBar;
     public KeyCode KeyToHold;
+    public TMP_Text KeyText;
 
     public float TaskTime;
 
@@ -19,6 +22,9 @@ public class HoldKeyTask : MonoBehaviour
     void Start()
     {
         SetTaskUIVisible(false);
+        ProgressBarGameObject.SetActive(false);
+        KeyText.SetText(KeyToHold.ToString());
+
         Progress = 0;
     }
 
@@ -39,7 +45,7 @@ public class HoldKeyTask : MonoBehaviour
 
         Progress = Math.Clamp(Progress, 0, TaskTime);
 
-        UICanvas.enabled = Progress > 0;
+        ProgressBarGameObject.SetActive(Progress > 0);
 
         RectTransform rectTransform = ProgressBar.GetComponent<RectTransform>();
         rectTransform.sizeDelta = new Vector2(20, Mathf.Lerp(0, 50, Progress / TaskTime));
@@ -54,6 +60,7 @@ public class HoldKeyTask : MonoBehaviour
     {
         SetTaskUIVisible(false);
         Progress = 0;
+        ProgressBarGameObject.SetActive(false);
     }
 
     private void SetTaskUIVisible(bool visible)
