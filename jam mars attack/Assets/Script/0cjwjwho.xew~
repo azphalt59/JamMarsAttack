@@ -1,0 +1,93 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class TimeSystem : MonoBehaviour
+{
+    [Header("UI References")]
+    [SerializeField] private TextMeshProUGUI timeText;
+    [SerializeField] private TextMeshProUGUI timePhaseText;
+
+    [Header("Time Stats")]
+    [SerializeField] private float timeCount;
+    [SerializeField] private float timeSpeedMultiplier;
+    [SerializeField, Tooltip("Starting time in hour")] private float timeStart = 8f;
+
+    [Header("Phases Time")]
+    [SerializeField] private List<string> timePhasesName;
+    private string currentTimePhase;
+
+    [Tooltip("Time when morning call start")] private float morningCallingStart;
+    [Tooltip("Time when morning call end")] private float morningCallingEnd;
+
+    [Tooltip("Time when morning work start")] private float morningWorkingStart;
+    [Tooltip("Time when morning work end")] private float morningWorkWorkingEnd;
+
+    [Tooltip("Time when midday eat start")] private float middayEatingStart;
+    [Tooltip("Time when midday eat end")] private float middayEatingEnd;
+
+    [Tooltip("Time when freetime start")] private float freetimeStart;
+    [Tooltip("Time when freetime end")] private float freetimeEnd;
+
+    [Tooltip("Time when afternoon working start")] private float afternoonWorkingStart;
+    [Tooltip("Time when afternoon working end")] private float afternoonWorkingEnd;
+
+    [Tooltip("Time when evening eat start")] private float eveningEatingStart;
+    [Tooltip("Time when evening eat end")] private float eveningEatingEnd;
+
+    [Tooltip("Time when night call start")] private float nightCallStart;
+    [Tooltip("Time when night call end")] private float nightCallEnd;
+
+    [Tooltip("Time when sleep start")] private float sleepingStart;
+    [Tooltip("Time when sleep end")] private float sleepingEnd;
+
+
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        timeCount += timeStart * 60; 
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        timeCount += Time.deltaTime * timeSpeedMultiplier;
+
+        float minutes = Mathf.FloorToInt(timeCount % 60);
+        float hours = Mathf.FloorToInt(timeCount / 60);
+        hours %= 24;
+        
+        timeText.text = string.Format("{0:00}:{1:00}", hours, minutes);
+
+        //sleeping
+        if(hours%24 < sleepingEnd || hours % 24 > sleepingStart)
+        {
+            currentTimePhase = timePhasesName[2];
+        }
+        // eating
+        if(hours % 24 < middayEatingEnd && hours % 24 > middayEatingStart || hours % 24 > eveningEatingStart && hours % 24 < eveningEatingEnd)
+        {
+            currentTimePhase = timePhasesName[0];
+        }
+        // calling
+        if(hours % 24 > morningCallingStart && hours%24 < morningCallingStart || hours % 24 > nightCallStart && hours % 24 < nightCallEnd)
+        {
+            currentTimePhase = timePhasesName[4];
+        }
+        // free time
+        if (hours % 24 > freetimeStart && hours % 24 < freetimeEnd)
+        {
+            currentTimePhase = timePhasesName[3];
+        }
+        // working
+        if (hours % 24 > morningCallingStart && hours % 24 < morningCallingStart || hours % 24 > nightCallStart && hours % 24 < nightCallEnd)
+        {
+            currentTimePhase = timePhasesName[1];
+        }
+        timePhaseText.text = currentTimePhase + " Time";
+    }
+}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8900352940400656844}
   - component: {fileID: 5885413941398382734}
   - component: {fileID: 7240074832543123496}
+  - component: {fileID: 8821577022341336196}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Untagged
@@ -98,6 +99,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db0c88a524a3cc418c062b65296502e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8821577022341336196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6176676027514899946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af826d2debbea5049b6f4ad0ea73d814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: {fileID: 0}
+  movementSpeed: 15
 --- !u!1 &6290255818294688776
 GameObject:
   m_ObjectHideFlags: 0
