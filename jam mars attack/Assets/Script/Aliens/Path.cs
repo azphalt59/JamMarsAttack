@@ -13,6 +13,7 @@ public class Path : MonoBehaviour
         {
             pathPositions.Add(transform.GetChild(i).gameObject.transform.position);
         }
+
     }
     private void Start()
     {
