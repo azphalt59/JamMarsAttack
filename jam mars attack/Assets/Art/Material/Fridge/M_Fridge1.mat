@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Ground
+  m_Name: M_Fridge1
   m_Shader: {fileID: 4800000, guid: 933f24cde1e3f6a41818f56d729421ab, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -16,7 +16,8 @@ Material:
   - _OUTLINE
   - _SPECULARHIGHLIGHTS_OFF
   - _TOON_SHADING_ON
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _STEPVIARAMPTEXTURE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -224,7 +225,7 @@ Material:
     - _LightFalloffSize: 1
     - _LightmapDirectionPitch: 0
     - _LightmapDirectionYaw: 0
-    - _Metallic: 0
+    - _Metallic: 0.711
     - _Mode: 0
     - _Nearest_Distance: 0
     - _NoiseScale: 1
@@ -292,7 +293,7 @@ Material:
     - _ZWrite: 1
     - _brushScale: 109.7
     m_Colors:
-    - _BaseColor: {r: 0.7688679, g: 0.8784026, b: 1, a: 1}
+    - _BaseColor: {r: 0.5752492, g: 0.82524014, b: 0.8773585, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorDim: {r: 0.5660378, g: 0.258989, b: 0.258989, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
@@ -315,7 +316,7 @@ Material:
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineDistancFade: {r: -21.899225, g: 43.79847, b: 0, a: 0}
     - _RimColor: {r: 0.80893326, g: 1, b: 0, a: 1}
-    - _ShadowColor: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
+    - _ShadowColor: {r: 0.1490187, g: 0.1490187, b: 0.1490187, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _SpherizeNormalOrigin: {r: 0, g: 0, b: 0, a: 1}
     - _UnityShadowColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
