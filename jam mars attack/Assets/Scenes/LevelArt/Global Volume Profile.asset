@@ -68,7 +68,7 @@ MonoBehaviour:
     m_Value: 0
   contrast:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 5
   colorFilter:
     m_OverrideState: 0
     m_Value: {r: 1.4980392, g: 1.4980392, b: 1.4980392, a: 1}
@@ -77,7 +77,7 @@ MonoBehaviour:
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 18.1
 --- !u!114 &-2321702155354530723
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -99,7 +99,7 @@ MonoBehaviour:
     m_Value: 0.9
   intensity:
     m_OverrideState: 1
-    m_Value: 1.63
+    m_Value: 2.51
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
@@ -137,11 +137,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb4b772797da9440885e8bd939e9560, type: 3}
   m_Name: ColorCurves
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   master:
     m_OverrideState: 1
     m_Value:
-      <length>k__BackingField: 3
+      <length>k__BackingField: 5
       m_Loop: 0
       m_ZeroValue: 0
       m_Range: 1
@@ -158,10 +158,28 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.61538464
-          value: 0.58115184
-          inSlope: 1.4436485
-          outSlope: 1.4436485
+          time: 0.32407406
+          value: 0.20708448
+          inSlope: 0.80743724
+          outSlope: 0.80743724
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.6335979
+          value: 0.59400547
+          inSlope: 1.0080583
+          outSlope: 1.0080583
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.85714287
+          value: 0.91008174
+          inSlope: 1.0307266
+          outSlope: 1.0307266
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -335,16 +353,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
   m_Name: ShadowsMidtonesHighlights
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.7004153, y: 0.8965159, z: 1, w: 0}
+    m_Value: {x: 0.93956184, y: 0.92843497, z: 1, w: 0}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.93465036, z: 0.9089678, w: 0}
+    m_Value: {x: 1, y: 0.98005396, z: 0.9763219, w: 0}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 0.7964459, y: 1, z: 0.93745875, w: 0}
+    m_Value: {x: 0.9609912, y: 1, z: 0.99742705, w: 0}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
