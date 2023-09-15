@@ -23,25 +23,25 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            direction.z = -Speed;
+            direction.z = Speed;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            direction.z = Speed;
+            direction.z = -Speed;
         }
 
         if (Input.GetKey(KeyCode.W))
         {
-            direction.x = -Speed;
+            direction.x = Speed;
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            direction.x = Speed;
+            direction.x = -Speed;
         }
 
         Rigidbody.velocity = direction;
-        Camera.transform.position = gameObject.transform.position + new Vector3(CameraDistanceFromPlayer, CameraDistanceFromPlayer, 0);
+        Camera.transform.position = gameObject.transform.position + new Vector3(-CameraDistanceFromPlayer, CameraDistanceFromPlayer, 0);
     }
 }
