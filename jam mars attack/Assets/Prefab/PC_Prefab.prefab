@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c115ee253c60cd84dbd97ce4ee2f8f17, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c115ee253c60cd84dbd97ce4ee2f8f17, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,9 +52,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c115ee253c60cd84dbd97ce4ee2f8f17, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e0e36a3dab883c4ca56a4f632d7b2f7, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c115ee253c60cd84dbd97ce4ee2f8f17, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e0e36a3dab883c4ca56a4f632d7b2f7, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c115ee253c60cd84dbd97ce4ee2f8f17, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e0e36a3dab883c4ca56a4f632d7b2f7, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c115ee253c60cd84dbd97ce4ee2f8f17, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e0e36a3dab883c4ca56a4f632d7b2f7, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c115ee253c60cd84dbd97ce4ee2f8f17, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e0e36a3dab883c4ca56a4f632d7b2f7, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c115ee253c60cd84dbd97ce4ee2f8f17, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 864df96aac29d5f43b5daa8203c46b24, type: 2}
     - target: {fileID: 919132149155446097, guid: c115ee253c60cd84dbd97ce4ee2f8f17, type: 3}
       propertyPath: m_Name
-      value: PC Variant
+      value: PC_Prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
