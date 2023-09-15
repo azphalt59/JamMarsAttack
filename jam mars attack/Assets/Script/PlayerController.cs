@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float Speed = 5f;
     public float CameraDistanceFromPlayer = 15f;
 
+    public Animator animator;
+
     void Start()
     {
     }
@@ -17,7 +19,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector3 direction = new Vector3();
-
+        
+        
         // direction.z = Input.GetAxis("Horizontal") * Speed;
         // direction.x = Input.GetAxis("Vertical") * -Speed;
 
@@ -40,8 +43,21 @@ public class PlayerController : MonoBehaviour
         {
             direction.x = -Speed;
         }
+        if (direction.magnitude == 0)
+        {
+            animator.SetBool("movement", false);
+        }
+        else
+        {
+            animator.SetBool("movement", true);
+        }
+        Debug.Log(direction);
 
+        animator.SetFloat("horizontal dir", direction.z);
+        animator.SetFloat("vertical dir", direction.x);
         Rigidbody.velocity = direction;
         Camera.transform.position = gameObject.transform.position + new Vector3(-CameraDistanceFromPlayer, CameraDistanceFromPlayer, 0);
+
+       
     }
 }

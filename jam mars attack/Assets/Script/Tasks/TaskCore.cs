@@ -9,7 +9,7 @@ public class TaskCore : MonoBehaviour
     public static TaskCore Instance;
 
     public int CompletedTasks;
-    public int TasksToWin;
+    public int TasksToWin = 5;
 
     public List<HoldKeyTask> TaskTriggers;
     public HoldKeyTask CurrentTask;
@@ -53,6 +53,14 @@ public class TaskCore : MonoBehaviour
         foreach (HoldKeyTask holdKeyTask in holdKeyTasks)
         {
             TaskTriggers.Add(holdKeyTask);
+        }
+    }
+
+    private void Update()
+    {
+        if(TasksToWin <= CompletedTasks)
+        {
+            GameManager.Instance.Win();
         }
     }
 }

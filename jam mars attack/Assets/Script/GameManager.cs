@@ -46,7 +46,10 @@ public class GameManager : MonoBehaviour
     {
         losePanel.SetActive(true);
     }
-
+    public void Win()
+    {
+        winPanel.SetActive(true);
+    }
     public void ResetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
