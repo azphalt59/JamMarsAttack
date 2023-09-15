@@ -24,7 +24,7 @@ public class TimeSystem : MonoBehaviour
     public PhaseTime phaseTime;
     public PhaseTime phaseTimeCopy;
     public enum PhaseTime
-    { Launch, Work, Sleep, Free, Call };
+    { MorningCall, MorningWork, MiddayLaunch, Free, AfternoonWork, EveningLaunch, EveningCall, Sleep };
     [SerializeField] private List<string> timePhasesName;
     private string currentTimePhase;
 
@@ -64,7 +64,7 @@ public class TimeSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeRemaining = gameDuration;
+        timeRemaining = gameDuration * 60;
         timeCount += timeStart * 60; 
     }
 
@@ -72,7 +72,12 @@ public class TimeSystem : MonoBehaviour
     void Update()
     {
         timeCount += Time.deltaTime * timeSpeedMultiplier;
-        timeRemaining = gameDuration - timeCount;
+        timeRemaining -= Time.deltaTime * timeSpeedMultiplier;
+
+        if(timeRemaining < 0)
+        {
+            GameManager.Instance.Death();
+        }
 
         float minutes = Mathf.FloorToInt(timeCount % 60);
         float hours = Mathf.FloorToInt(timeCount / 60);
@@ -84,20 +89,30 @@ public class TimeSystem : MonoBehaviour
         //sleeping
         if (hours%24 <= sleepingEnd - 1 || hours % 24 >= sleepingStart)
         {
-            currentTimePhase = timePhasesName[2];
+            currentTimePhase = timePhasesName[7];
             phaseTime = PhaseTime.Sleep;
         }
         // eating
-        if(hours % 24 <= middayEatingEnd - 1 && hours % 24 >= middayEatingStart || hours % 24 >= eveningEatingStart && hours % 24 <= eveningEatingEnd - 1)
+        if(hours % 24 <= middayEatingEnd - 1 && hours % 24 >= middayEatingStart)
         {
-            currentTimePhase = timePhasesName[0];
-            phaseTime = PhaseTime.Launch;
+            currentTimePhase = timePhasesName[2];
+            phaseTime = PhaseTime.MiddayLaunch;
+        }
+        if (hours % 24 >= eveningEatingStart && hours % 24 <= eveningEatingEnd - 1)
+        {
+            currentTimePhase = timePhasesName[5];
+            phaseTime = PhaseTime.EveningLaunch;
         }
         // calling
-        if(hours % 24 >= morningCallingStart && hours%24 <= morningCallingEnd - 1 || hours % 24 >= nightCallStart && hours % 24 <= nightCallEnd - 1)
+        if (hours % 24 >= morningCallingStart && hours%24 <= morningCallingEnd - 1)
         {
-            currentTimePhase = timePhasesName[4];
-            phaseTime = PhaseTime.Call;
+            currentTimePhase = timePhasesName[0];
+            phaseTime = PhaseTime.MorningCall;
+        }
+        if (hours % 24 >= nightCallStart && hours % 24 <= nightCallEnd - 1)
+        {
+            currentTimePhase = timePhasesName[6];
+            phaseTime = PhaseTime.EveningCall;
         }
         // free time
         if (hours % 24 >= freetimeStart && hours % 24 <= freetimeEnd - 1)
@@ -106,11 +121,16 @@ public class TimeSystem : MonoBehaviour
             phaseTime = PhaseTime.Free;
         }
         // working
-        if (hours % 24 >= morningWorkingStart && hours % 24 <= morningWorkingEnd-1 || hours % 24 >= afternoonWorkingStart && hours % 24 <= afternoonWorkingEnd - 1)
+        if (hours % 24 >= morningWorkingStart && hours % 24 <= morningWorkingEnd-1)
         {
             currentTimePhase = timePhasesName[1];
-            phaseTime = PhaseTime.Work;
+            phaseTime = PhaseTime.MorningWork;
         }
-        
+        if (hours % 24 >= afternoonWorkingStart && hours % 24 <= afternoonWorkingEnd - 1)
+        {
+            currentTimePhase = timePhasesName[4];
+            phaseTime = PhaseTime.AfternoonWork;
+        }
+
     }
 }

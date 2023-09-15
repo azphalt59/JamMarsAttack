@@ -19,25 +19,26 @@ public class AlienMovement : MonoBehaviour
     [Header("Movements stats")]
     [SerializeField] private float movementSpeed = 5f;
 
-    [Header("Paths & transitions")]
-    [SerializeField] private Path launchPath;
+    [Header("Paths")]
+
+    [SerializeField] private Path callPath;
     [SerializeField] private Path workPath;
-    [SerializeField] private Path workToLauchPath;
-    [SerializeField] private Path launchToWorkPath;
- 
+    [SerializeField] private Path launchPath;
+    [SerializeField] private Path freeTimePath;
+    [SerializeField] private Path nightPath;
+
+    [Header("Path transition time state")]
+    [SerializeField] private Path sleepToMorningCall;
+    [SerializeField] private Path callToMorningWork;
+    [SerializeField] private Path morningCallToLaunch;
+    [SerializeField] private Path LaunchToFreeTime;
+    [SerializeField] private Path FreeTimeToWork;
+    [SerializeField] private Path workToEveningLaunch;
+    [SerializeField] private Path eveningLaunchToCall;
+    [SerializeField] private Path CallToSleep;
+
+
     Vector3 transiPathTarget = Vector3.zero;
-
-
-
-    private void Awake()
-    {
-        
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -87,25 +88,45 @@ public class AlienMovement : MonoBehaviour
     {
         TimeSystem.Instance.phaseTimeCopy = TimeSystem.Instance.phaseTime;
         //pathPosIndex = 0;
-        
-        if(TimeSystem.Instance.phaseTime == TimeSystem.PhaseTime.Launch ||
-            TimeSystem.Instance.phaseTime == TimeSystem.PhaseTime.Sleep ||
-            TimeSystem.Instance.phaseTime == TimeSystem.PhaseTime.Free ||
-            TimeSystem.Instance.phaseTime == TimeSystem.PhaseTime.Call)
+        if (TimeSystem.Instance.phaseTime == TimeSystem.PhaseTime.MorningCall)
         {
-            Debug.Log("launch");
-            nextPath = workToLauchPath;
-            nextPath2 = launchPath;
-           
+            nextPath = sleepToMorningCall;
+            nextPath2 = callPath;
         }
-        else
+        if (TimeSystem.Instance.phaseTime == TimeSystem.PhaseTime.MorningWork)
         {
-            Debug.Log("work");
-            if(path = launchPath)
-            {
-                nextPath = launchToWorkPath;
-            }
+            nextPath = callToMorningWork;
             nextPath2 = workPath;
+        }
+        if (TimeSystem.Instance.phaseTime == TimeSystem.PhaseTime.MiddayLaunch)
+        {
+            nextPath = morningCallToLaunch;
+            nextPath2 = launchPath;  
+        }
+        if (TimeSystem.Instance.phaseTime == TimeSystem.PhaseTime.Free)
+        {
+            nextPath = LaunchToFreeTime;
+            nextPath2 = freeTimePath;
+        }
+        if (TimeSystem.Instance.phaseTime == TimeSystem.PhaseTime.AfternoonWork)
+        {
+            nextPath = FreeTimeToWork;
+            nextPath2 = workPath;
+        }
+        if (TimeSystem.Instance.phaseTime == TimeSystem.PhaseTime.EveningLaunch)
+        {
+            nextPath = workToEveningLaunch;
+            nextPath2 = launchPath;
+        }
+        if(TimeSystem.Instance.phaseTime == TimeSystem.PhaseTime.EveningCall)
+        {
+            nextPath = eveningLaunchToCall;
+            nextPath2 = callPath;
+        }
+        if (TimeSystem.Instance.phaseTime == TimeSystem.PhaseTime.Sleep)
+        {
+            nextPath = CallToSleep;
+            nextPath2 = nightPath;
         }
 
         if (pathTransitions)
