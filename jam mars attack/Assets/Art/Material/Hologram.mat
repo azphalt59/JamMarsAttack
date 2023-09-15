@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Hologram
+  m_Name: Hologram
   m_Shader: {fileID: -6465566751694194690, guid: 30d3c80c815a42c428681d3efcdf4bcd, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -38,6 +38,10 @@ Material:
     m_TexEnvs:
     - _SampleTexture2D_397a140796d14f5caeef7a6558c2e4cc_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: 02cb49372a999d046a46a5290e12354a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_50920672ee8c4788a20d75df257f9d36_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: a277500c4a2a8a14684dc0e7bbbae735, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -60,5 +64,5 @@ Material:
     - _Tilling: 5
     m_Colors:
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 0}
-    - _MainColor: {r: 0, g: 0.9822383, b: 1, a: 0}
+    - _MainColor: {r: 0, g: 2.2565913, b: 2.297397, a: 0}
   m_BuildTextureStacks: []
