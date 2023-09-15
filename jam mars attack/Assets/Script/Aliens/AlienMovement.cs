@@ -39,7 +39,6 @@ public class AlienMovement : MonoBehaviour
 
 
     Vector3 transiPathTarget = Vector3.zero;
-
     // Update is called once per frame
     void Update()
     {
@@ -84,42 +83,37 @@ public class AlienMovement : MonoBehaviour
         UpdateRotation();
        
     }
-
     private void UpdateRotation()
     {
-       
-        if(Mathf.Abs(dir.x) >  Mathf.Abs(dir.z))
+        Vector2 normDir;
+        if (Mathf.Abs(dir.x) > Mathf.Abs(dir.z))
         {
-            if (dir.x < 2)
+            if(dir.x < 0)
             {
+                normDir = new Vector2(-1, 0);
                 transform.localRotation = Quaternion.Euler(0, 90, 0);
-                return;
-
             }
-            if (dir.x > -2)
+            if(dir.x > 0)
             {
+                normDir = new Vector2(1, 0);
                 transform.localRotation = Quaternion.Euler(0, 270, 0);
-                return;
-
-            }
-        } 
-        else 
-        {
-            if (dir.z > -2)
-            {
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
-                return;
-
-            }
-            if (dir.z < 2)
-            {
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
-                return;
-
             }
         }
-       
-       
+        else if (Mathf.Abs(dir.x) < Mathf.Abs(dir.z))
+        {
+            if (dir.z < 0)
+            {
+                normDir = new Vector2(0, -1);
+                transform.localRotation = Quaternion.Euler(0,0, 0);
+            }
+            if (dir.z > 0)
+            {
+                normDir = new Vector2(0, 1);
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+        }
+
+
     }
 
     public void SetPath()

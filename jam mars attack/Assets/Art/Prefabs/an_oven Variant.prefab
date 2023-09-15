@@ -52,6 +52,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6ddc29104014c9242bfaf0997cfb86bb, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d9cfca605caf4b4ba61398b3f0f255a, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 6ddc29104014c9242bfaf0997cfb86bb, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3948d328d2ba7604fb136459687176d1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 6ddc29104014c9242bfaf0997cfb86bb, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3948d328d2ba7604fb136459687176d1, type: 2}
     - target: {fileID: 919132149155446097, guid: 6ddc29104014c9242bfaf0997cfb86bb, type: 3}
       propertyPath: m_Name
       value: an_oven Variant
