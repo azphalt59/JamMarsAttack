@@ -107,6 +107,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8900352940400656844}
   - component: {fileID: 8821577022341336196}
+  - component: {fileID: 7213554700996299694}
+  - component: {fileID: 4134805010890156807}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Untagged
@@ -144,8 +146,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: {fileID: 0}
   pathTransitions: 0
-  movementSpeed: 25
-  launchPath: {fileID: 0}
+  movementSpeed: 0
+  callPath: {fileID: 0}
   workPath: {fileID: 0}
-  workToLauchPath: {fileID: 0}
-  launchToWorkPath: {fileID: 0}
+  launchPath: {fileID: 0}
+  freeTimePath: {fileID: 0}
+  nightPath: {fileID: 0}
+  sleepToMorningCall: {fileID: 0}
+  callToMorningWork: {fileID: 0}
+  morningCallToLaunch: {fileID: 0}
+  LaunchToFreeTime: {fileID: 0}
+  FreeTimeToWork: {fileID: 0}
+  workToEveningLaunch: {fileID: 0}
+  eveningLaunchToCall: {fileID: 0}
+  CallToSleep: {fileID: 0}
+--- !u!136 &7213554700996299694
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6176676027514899946}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4134805010890156807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6176676027514899946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20fd5a40452cb6647ae30cd98d079b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 10
+  angle: 67
+  checkDelay: 0.2
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  obstructionLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  playerDetected: 0

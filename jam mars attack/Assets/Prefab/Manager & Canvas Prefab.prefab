@@ -1441,7 +1441,7 @@ MonoBehaviour:
   player: {fileID: 0}
   maxHealth: 3
   respawnPosition: {fileID: 0}
-  winPanel: {fileID: 0}
+  winPanel: {fileID: 624448142497187672}
   losePanel: {fileID: 6548410429944180011}
 --- !u!1 &9005734586328227395
 GameObject:
