@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.AI;
-
+using System;
 
 public class AlienMovement : MonoBehaviour
 {
@@ -81,6 +81,44 @@ public class AlienMovement : MonoBehaviour
             SetPath();
         }
 
+        UpdateRotation();
+       
+    }
+
+    private void UpdateRotation()
+    {
+       
+        if(Mathf.Abs(dir.x) >  Mathf.Abs(dir.z))
+        {
+            if (dir.x < 2)
+            {
+                transform.localRotation = Quaternion.Euler(0, 90, 0);
+                return;
+
+            }
+            if (dir.x > -2)
+            {
+                transform.localRotation = Quaternion.Euler(0, 270, 0);
+                return;
+
+            }
+        } 
+        else 
+        {
+            if (dir.z > -2)
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                return;
+
+            }
+            if (dir.z < 2)
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                return;
+
+            }
+        }
+       
        
     }
 
