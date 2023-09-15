@@ -93,11 +93,19 @@
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+<<<<<<< HEAD
+                "key": "editor.autoRecalculateCollisions",
+=======
                 "key": "SelectEdgeLoop.selectIterative",
+>>>>>>> cc7a9647e43e8b769e2cd52d5d36f89dfc90c36c
                 "value": "{\"m_Value\":false}"
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+<<<<<<< HEAD
+                "key": "editor.toolbarIconGUI",
+                "value": "{\"m_Value\":false}"
+=======
                 "key": "SelectEdgeRing.selectIterative",
                 "value": "{\"m_Value\":false}"
             },
@@ -230,6 +238,7 @@
                 "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "ExtrudeFaces.distance",
                 "value": "{\"m_Value\":0.5}"
+>>>>>>> cc7a9647e43e8b769e2cd52d5d36f89dfc90c36c
             }
         ]
     }
